@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Sunflower</string>
+    <string name="inc">INCREASE</string>
+    <string name="dec">DECREASE</string>
+    <string name="ch">CHANGE</string>
+    <string name="input">#</string>
 </resources>

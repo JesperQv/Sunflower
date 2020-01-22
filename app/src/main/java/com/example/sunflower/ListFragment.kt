@@ -24,14 +24,17 @@ class ListFragment : Fragment() {
         list.layoutManager = LinearLayoutManager(context)
         adapter = MemeAdapter()
         list.adapter = adapter
-        val memes = generateMemes()
+        val memes = ArrayList<Meme>()
+        for (i in 0..50) {
+            memes.addAll(generateMemes())
+        }
         adapter.setMemes(memes)
 
         return root
     }
 
-    private fun generateMemes(): List<Meme> {
-        return listOf(Meme("If u have knife", "https://i.imgur.com/0dKlW4u.png"),
+    private fun generateMemes(): ArrayList<Meme> {
+        val list =  listOf(Meme("If u have knife", "https://i.imgur.com/0dKlW4u.png"),
             Meme("sees u walking", "https://i.imgur.com/DqoZN4p.png"),
             Meme("baby off a cliff", "https://i.imgur.com/iU2XV5G.png"),
             Meme("sees person", "https://i.imgur.com/u9cQz8w.png"),
@@ -41,5 +44,8 @@ class ListFragment : Fragment() {
             Meme("what if i told u", "https://i.imgur.com/8x0yWHs.png"),
             Meme("bernie", "https://i.imgur.com/8FbJjCr.jpg"),
             Meme("spider", "https://i.imgur.com/yhx4xTH.jpg"))
+        val arrayList = ArrayList<Meme>()
+        arrayList.addAll(list)
+        return arrayList
     }
 }

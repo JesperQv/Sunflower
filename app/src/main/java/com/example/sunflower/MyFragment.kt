@@ -31,14 +31,14 @@ class MyFragment : Fragment() {
 
         val view = inflater.inflate(R.layout.main_fragment, container, false)
 
-        editText = view.findViewById<EditText>(R.id.edit_txt)
+        editText = view.findViewById(R.id.edit_txt)
         editText.setText(stepSize.toString())
 
-        testImage = view.findViewById<ImageView>(R.id.test_image)
-        counter = view.findViewById<TextView>(R.id.inc_num)
-        chButton = view.findViewById<Button>(R.id.ch_button)
-        incButton = view.findViewById<Button>(R.id.inc_button)
-        decButton = view.findViewById<Button>(R.id.dec_button)
+        testImage = view.findViewById(R.id.test_image)
+        counter = view.findViewById(R.id.inc_num)
+        chButton = view.findViewById(R.id.ch_button)
+        incButton = view.findViewById(R.id.inc_button)
+        decButton = view.findViewById(R.id.dec_button)
         counter.text = counterToDisplay.toString()
 
         incButton.setOnClickListener {

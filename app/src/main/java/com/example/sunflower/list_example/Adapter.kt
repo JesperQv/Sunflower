@@ -1,4 +1,4 @@
-package com.example.sunflower
+package com.example.sunflower.list_example
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +8,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.sunflower.R
 
 class MemeAdapter: RecyclerView.Adapter<MemeViewHolder>() {
 
@@ -20,7 +21,11 @@ class MemeAdapter: RecyclerView.Adapter<MemeViewHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MemeViewHolder {
-        return MemeViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.list_item, parent, false))
+        return MemeViewHolder(
+            LayoutInflater.from(
+                parent.context
+            ).inflate(R.layout.list_item, parent, false)
+        )
     }
 
     override fun getItemCount(): Int = memes.size

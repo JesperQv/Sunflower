@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
@@ -37,5 +38,8 @@ class MemeViewHolder(private val view: View): RecyclerView.ViewHolder(view) {
     fun onBind(meme: Meme) {
         textView.text = meme.name
         Glide.with(view).load(meme.imageUrl).into(imageView)
+        view.setOnClickListener {
+            Toast.makeText(view.context, "You clicked: ${meme.name}", Toast.LENGTH_SHORT).show()
+        }
     }
 }

@@ -31,12 +31,11 @@ class WeatherListFragment : Fragment() {
         }
         weatherAdapter.setWeatherReports(reports)
 
-
         return root
     }
 
     private fun generateReports(): ArrayList<WeatherReport> {
-        //todo
+
         val list = listOf(
             WeatherReport(
                 location = "Eskilstuna",
@@ -103,5 +102,4 @@ class WeatherListFragment : Fragment() {
         arrayList.addAll(list)
         return arrayList
     }
-
 }

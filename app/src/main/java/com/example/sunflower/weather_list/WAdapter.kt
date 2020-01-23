@@ -1,6 +1,5 @@
 package com.example.sunflower.weather_list
 
-import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,7 +33,6 @@ class WeatherAdapter : RecyclerView.Adapter<WeatherReportViewHolder>() {
     override fun onBindViewHolder(holder: WeatherReportViewHolder, position: Int) {
         holder.onBind(reports[position])
     }
-
 }
 
 class WeatherReportViewHolder(private val view: View): RecyclerView.ViewHolder(view) {

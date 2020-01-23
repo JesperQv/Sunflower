@@ -76,5 +76,4 @@ class MyFragment : Fragment() {
             counter.text = counterToDisplay.toString()
         }
     }
-
 }

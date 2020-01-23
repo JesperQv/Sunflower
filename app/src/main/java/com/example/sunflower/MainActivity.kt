@@ -2,7 +2,6 @@ package com.example.sunflower
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.sunflower.list_example.ListFragment
 import com.example.sunflower.weather_list.WeatherListFragment
 
 class MainActivity : AppCompatActivity() {
@@ -18,4 +17,3 @@ class MainActivity : AppCompatActivity() {
 
     }
 }
-

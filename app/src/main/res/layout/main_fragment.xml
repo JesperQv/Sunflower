@@ -8,32 +8,38 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="30sp" />
+
     <Button
         android:id="@+id/inc_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/inc" />
+
     <Button
         android:id="@+id/dec_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/dec" />
+
     <Button
         android:id="@+id/ch_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/ch" />
+
     <EditText
         android:id="@+id/edit_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="@string/input"
         android:inputType="number" />
+
     <ImageView
         android:id="@+id/test_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
 </LinearLayout>

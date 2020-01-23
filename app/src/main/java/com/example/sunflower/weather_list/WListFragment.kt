@@ -20,7 +20,6 @@ class WeatherListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.weather_fragment_list, container, false)
-
         weatherList = root.findViewById(R.id.weather_list)
         weatherList.layoutManager = LinearLayoutManager(context)
         weatherAdapter = WeatherAdapter()
@@ -30,7 +29,6 @@ class WeatherListFragment : Fragment() {
             reports.addAll(generateReports())
         }
         weatherAdapter.setWeatherReports(reports)
-
         return root
     }
 

@@ -1,6 +1,5 @@
 package com.example.sunflower.data.response
 
-
 data class CurrentWeatherResponse(
     val base: String,
     val clouds: Clouds,

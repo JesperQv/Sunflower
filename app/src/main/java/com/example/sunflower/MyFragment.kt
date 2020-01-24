@@ -38,7 +38,6 @@ class MyFragment : Fragment() {
 
         editText = view.findViewById(R.id.edit_txt)
         editText.setText(stepSize.toString())
-
         textView = view.findViewById(R.id.weather_test)
         testImage = view.findViewById(R.id.test_image)
         counter = view.findViewById(R.id.inc_num)

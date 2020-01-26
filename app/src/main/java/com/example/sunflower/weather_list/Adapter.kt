@@ -48,9 +48,14 @@ class WeatherReportViewHolder(private val view: View) : RecyclerView.ViewHolder(
         weatherTempView.text = report.temp
         weatherTime.text = report.time
         weatherImage.setImageDrawable(view.context.getDrawable(when(report.icon) {
+            /*10n & 10d are different icons, we need to define these later
+            they basically indicate light/heavy rain etc, goes for all icons.*/
+            "10n" -> R.drawable.ic_weather_rainy
             "10d" -> R.drawable.ic_weather_rainy
+            "01n" -> R.drawable.ic_weather_sunny
             "01d" -> R.drawable.ic_weather_sunny
             "13n" -> R.drawable.ic_weather_snowy
+            "13d" -> R.drawable.ic_weather_snowy
             else -> R.drawable.ic_weather_cloudy
         }))
         view.setOnClickListener {

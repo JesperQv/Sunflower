@@ -2,7 +2,6 @@ package com.example.sunflower
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.sunflower.weather_list.WeatherListFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -10,7 +9,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val fragment = WeatherListFragment()
+        val fragment = MyFragment()
+        //val fragment = WeatherListFragment()
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.frame, fragment)
         transaction.commit()

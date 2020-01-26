@@ -10,7 +10,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
-import com.example.sunflower.data.WeatherApiInterface
+import com.example.sunflower.data.WeatherApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -61,15 +61,6 @@ class MyFragment : Fragment() {
         Glide.with(this)
             .load("https://i.imgur.com/Wk5rb6I.png")
             .into(testImage)
-
-        //This is shit practice and only to test if WeatherApiInterface works etc
-        val apiService = WeatherApiInterface()
-
-        GlobalScope.launch(Dispatchers.Main) {
-            val currentWeatherResponse = apiService.getCurrentWeather("Stockholm").await()
-            textView.text = currentWeatherResponse.weather.toString()
-        }
-        //end of shit
 
         return view
     }

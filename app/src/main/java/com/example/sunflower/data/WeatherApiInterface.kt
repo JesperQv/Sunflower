@@ -23,6 +23,7 @@ interface WeatherApiInterface {
 
     companion object {
         operator fun invoke(): WeatherApiInterface {
+
             val requestInterceptor = Interceptor { chain ->
 
                 val url = chain.request()

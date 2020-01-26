@@ -1,6 +1,5 @@
 package com.example.sunflower.data
 
-import com.example.sunflower.data.response.CurrentWeatherResponse
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import kotlinx.coroutines.Deferred
 import okhttp3.Interceptor
@@ -13,16 +12,17 @@ import retrofit2.http.Query
 const val API_KEY = "6072ef68f569c7fe76e6084d4382126b"
 //https://api.openweathermap.org/data/2.5/weather?q=Stockholm&appid=6072ef68f569c7fe76e6084d4382126b&units=metric
 
-interface WeatherApiInterface {
+interface WeatherApi {
 
-    @GET("weather")
-    fun getCurrentWeather(
+    @GET("forecast")
+    fun getCurrentWeatherAsync(
         @Query("q") location: String,
         @Query("units") unitCode: String = "metric"
     ): Deferred<CurrentWeatherResponse>
 
     companion object {
-        operator fun invoke(): WeatherApiInterface {
+        //TODO I think we should refactor this into its own class
+        operator fun invoke(): WeatherApi {
 
             val requestInterceptor = Interceptor { chain ->
 
@@ -49,7 +49,9 @@ interface WeatherApiInterface {
                 .addCallAdapterFactory(CoroutineCallAdapterFactory())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
-                .create(WeatherApiInterface::class.java)
+                .create(WeatherApi::class.java)
         }
     }
 }
+
+

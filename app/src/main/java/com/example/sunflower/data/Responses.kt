@@ -5,10 +5,12 @@ import com.google.gson.annotations.SerializedName
 
 fun CurrentWeatherResponse.toWeatherReportList(): List<WeatherReport> {
     val location = this.city.name
+
     return this.list.map { val weather = it.weather.first().main
         val temp = it.main.temp
         val time = it.dtTxt
-        WeatherReport(location, weather, "$temp°C", time) }
+        val icon = it.weather.first().icon
+        WeatherReport(location, weather, "$temp°C", time, icon) }
 }
 
 data class CurrentWeatherResponse(

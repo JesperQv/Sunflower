@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.annotation.IdRes
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sunflower.R
 
@@ -48,10 +47,10 @@ class WeatherReportViewHolder(private val view: View) : RecyclerView.ViewHolder(
         weatherLocationView.text = report.location
         weatherTempView.text = report.temp
         weatherTime.text = report.time
-        weatherImage.setImageDrawable(view.context.getDrawable(when(report.weather) {
-            "Rain" -> R.drawable.ic_weather_rainy
-            "Clear" -> R.drawable.ic_weather_sunny
-            "Snow" -> R.drawable.ic_weather_snowy
+        weatherImage.setImageDrawable(view.context.getDrawable(when(report.icon) {
+            "10d" -> R.drawable.ic_weather_rainy
+            "01d" -> R.drawable.ic_weather_sunny
+            "13n" -> R.drawable.ic_weather_snowy
             else -> R.drawable.ic_weather_cloudy
         }))
         view.setOnClickListener {

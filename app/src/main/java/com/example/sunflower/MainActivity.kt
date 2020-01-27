@@ -2,19 +2,33 @@ package com.example.sunflower
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.setupWithNavController
 import com.example.sunflower.weather_list.WeatherListFragment
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //val fragment = MyFragment()
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment)
+        bottom_nav.setupWithNavController(navController)
+        NavigationUI.setupActionBarWithNavController(this, navController)
+
+        //val fragment = TestFragment()
         val fragment = WeatherListFragment()
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.frame, fragment)
         transaction.commit()
+    }
 
+    override fun onSupportNavigateUp(): Boolean {
+        return NavigationUI.navigateUp(navController, null)
     }
 }

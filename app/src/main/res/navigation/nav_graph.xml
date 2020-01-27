@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/weather_fragment_list">
+
+    <fragment
+        android:id="@+id/weather_fragment_list"
+        android:name="com.example.sunflower.weather_list.WeatherListFragment"
+        android:label="WeatherListFragment"
+        tools:layout="@layout/weather_fragment_list"/>
+
+    <fragment
+        android:id="@+id/test_fragment"
+        android:name="com.example.sunflower.navigation_test.TestFragment"
+        android:label="TestFragment"
+        tools:layout="@layout/test_fragment"/>
+    <fragment
+        android:id="@+id/main_fragment"
+        android:name="com.example.sunflower.MyFragment"
+        android:label="MyFragment"
+        tools:layout="@layout/main_fragment"/>
+
+
+</navigation>

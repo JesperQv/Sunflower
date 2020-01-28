@@ -4,9 +4,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
-import androidx.navigation.ui.setupWithNavController
-import com.example.sunflower.weather_list.WeatherListFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -18,14 +17,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         navController = Navigation.findNavController(this, R.id.nav_host_fragment)
-        bottom_nav.setupWithNavController(navController)
-        NavigationUI.setupActionBarWithNavController(this, navController)
-
-        //val fragment = TestFragment()
-        val fragment = WeatherListFragment()
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.frame, fragment)
-        transaction.commit()
+        NavigationUI.setupWithNavController(bottom_nav, nav_host_fragment.findNavController())
     }
 
     override fun onSupportNavigateUp(): Boolean {

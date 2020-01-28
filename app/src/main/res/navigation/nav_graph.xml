@@ -12,15 +12,9 @@
         tools:layout="@layout/weather_fragment_list"/>
 
     <fragment
-        android:id="@+id/test_fragment"
-        android:name="com.example.sunflower.navigation_test.TestFragment"
-        android:label="TestFragment"
-        tools:layout="@layout/test_fragment"/>
-    <fragment
         android:id="@+id/main_fragment"
         android:name="com.example.sunflower.MyFragment"
         android:label="MyFragment"
         tools:layout="@layout/main_fragment"/>
-
 
 </navigation>

@@ -2,18 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:id="@+id/weather_fragment_list"
-        android:title="WeatherListFragment"
-        android:icon="@drawable/ic_weather_sunny"
-        />
-
-    <item android:id="@+id/test_fragment"
-        android:title="TestFragment"
-        android:icon="@drawable/ic_weather_cloudy"
+        android:title="@string/list_of_forecasts"
+        android:icon="@drawable/ic_menu_black_24dp"
         />
 
     <item android:id="@+id/main_fragment"
-        android:title="TestFragment"
-        android:icon="@drawable/ic_weather_cloudy"
+        android:title="@string/test_garbage"
+        android:icon="@drawable/ic_sentiment_very_dissatisfied_black_24dp"
         />
 
 </menu>

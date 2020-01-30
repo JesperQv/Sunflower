@@ -1,4 +1,4 @@
-package com.example.sunflower.weather_list
+package com.example.weather_forecasts.weather_list
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.example.sunflower.R
+import com.example.weather_forecasts.R
 
 class WeatherAdapter : RecyclerView.Adapter<WeatherReportViewHolder>() {
 

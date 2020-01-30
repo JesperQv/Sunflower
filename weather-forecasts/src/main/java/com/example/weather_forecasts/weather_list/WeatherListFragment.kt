@@ -1,4 +1,4 @@
-package com.example.sunflower.weather_list
+package com.example.weather_forecasts.weather_list
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.sunflower.R
-import com.example.sunflower.data.WeatherApi
-import com.example.sunflower.data.toWeatherReportList
+import com.example.weather_forecasts.R
+import com.example.weather_forecasts.data.WeatherApi
+import com.example.weather_forecasts.data.toWeatherReportList
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch

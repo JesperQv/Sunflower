@@ -9,13 +9,14 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.weather_forecasts.R
 
-class WeatherAdapter : RecyclerView.Adapter<WeatherReportViewHolder>() {
+class WeatherAdapter(private val onItemClicked: (forecast: WeatherForecast) -> Unit) :
+    RecyclerView.Adapter<WeatherReportViewHolder>() {
 
-    private var reports: ArrayList<WeatherReport> = ArrayList()
+    private var forecasts: ArrayList<WeatherForecast> = ArrayList()
 
-    fun setWeatherReports(newReports: List<WeatherReport>) {
-        reports.clear()
-        reports.addAll(newReports)
+    fun setWeatherReports(newForecasts: List<WeatherForecast>) {
+        forecasts.clear()
+        forecasts.addAll(newForecasts)
         notifyDataSetChanged()
     }
 
@@ -27,10 +28,10 @@ class WeatherAdapter : RecyclerView.Adapter<WeatherReportViewHolder>() {
         )
     }
 
-    override fun getItemCount(): Int = reports.size
+    override fun getItemCount(): Int = forecasts.size
 
     override fun onBindViewHolder(holder: WeatherReportViewHolder, position: Int) {
-        holder.onBind(reports[position])
+        holder.onBind(forecasts[position], onItemClicked)
     }
 }
 
@@ -42,28 +43,28 @@ class WeatherReportViewHolder(private val view: View) : RecyclerView.ViewHolder(
     private val weatherTime: TextView = view.findViewById(R.id.weather_time)
     private val weatherImage: ImageView = view.findViewById(R.id.weather_image)
 
-    fun onBind(report: WeatherReport) {
-        weatherConditionView.text = report.weather
-        weatherLocationView.text = report.location
-        weatherTempView.text = report.temp
-        weatherTime.text = report.time
-        weatherImage.setImageDrawable(view.context.getDrawable(when(report.icon) {
-            /*10n & 10d are different icons, we need to define these later
-            they basically indicate light/heavy rain etc, goes for all icons.*/
-            "10n" -> R.drawable.ic_weather_rainy
-            "10d" -> R.drawable.ic_weather_rainy
-            "01n" -> R.drawable.ic_weather_sunny
-            "01d" -> R.drawable.ic_weather_sunny
-            "13n" -> R.drawable.ic_weather_snowy
-            "13d" -> R.drawable.ic_weather_snowy
-            else -> R.drawable.ic_weather_cloudy
-        }))
+    fun onBind(forecast: WeatherForecast, onItemClicked: (forecast: WeatherForecast) -> Unit) {
+        weatherConditionView.text = forecast.weather
+        weatherLocationView.text = forecast.location
+        weatherTempView.text = forecast.temp
+        weatherTime.text = forecast.time
+        weatherImage.setImageDrawable(
+            view.context.getDrawable(
+                when (forecast.icon) {
+                    /*10n & 10d are different icons, we need to define these later
+                    they basically indicate light/heavy rain etc, goes for all icons.*/
+                    "10n" -> R.drawable.ic_weather_rainy
+                    "10d" -> R.drawable.ic_weather_rainy
+                    "01n" -> R.drawable.ic_weather_sunny
+                    "01d" -> R.drawable.ic_weather_sunny
+                    "13n" -> R.drawable.ic_weather_snowy
+                    "13d" -> R.drawable.ic_weather_snowy
+                    else -> R.drawable.ic_weather_cloudy
+                }
+            )
+        )
         view.setOnClickListener {
-            Toast.makeText(
-                view.context,
-                "It is ${report.weather} in ${report.location} at ${report.time}",
-                Toast.LENGTH_SHORT
-            ).show()
+            onItemClicked.invoke(forecast)
         }
     }
 }

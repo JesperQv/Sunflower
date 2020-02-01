@@ -1,16 +1,16 @@
 package com.example.weather_forecasts.data
 
-import com.example.weather_forecasts.weather_list.WeatherReport
+import com.example.weather_forecasts.weather_list.WeatherForecast
 import com.google.gson.annotations.SerializedName
 
-fun CurrentWeatherResponse.toWeatherReportList(): List<WeatherReport> {
+fun CurrentWeatherResponse.toWeatherReportList(): List<WeatherForecast> {
     val location = this.city.name
 
     return this.list.map { val weather = it.weather.first().main
         val temp = it.main.temp
         val time = it.dtTxt
         val icon = it.weather.first().icon
-        WeatherReport(location, weather, "$temp°C", time, icon) }
+        WeatherForecast(location, weather, "$temp°C", time, icon) }
 }
 
 data class CurrentWeatherResponse(

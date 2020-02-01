@@ -1,6 +1,6 @@
 package com.example.weather_forecasts.weather_list
 
-data class WeatherReport(
+data class WeatherForecast(
     val location: String,
     val weather: String,
     val temp: String,

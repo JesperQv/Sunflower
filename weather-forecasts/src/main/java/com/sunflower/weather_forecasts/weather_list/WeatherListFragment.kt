@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sunflower.weather_forecasts.WeatherForecastNavigator
 import com.sunflower.weather_forecasts.R
 import com.sunflower.weather_forecasts.WeatherForecastViewModel
-import com.sunflower.weather_forecasts.data.WeatherApi
 import org.koin.android.ext.android.inject
 
 class WeatherListFragment : Fragment() {
@@ -33,6 +32,7 @@ class WeatherListFragment : Fragment() {
         weatherAdapter = WeatherAdapter() {
             navigator.onForecastClicked(it)
         }
+        weatherList.adapter = weatherAdapter
         model.forecasts.observe(viewLifecycleOwner, Observer<List<WeatherForecast>> { forecasts ->
             weatherAdapter.setWeatherReports(forecasts)
         })

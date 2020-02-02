@@ -7,6 +7,5 @@ import org.koin.dsl.module
 import java.util.*
 
 val locationModule = module {
-    single<LocationListener> { CachedLocationProvider(get()) } bind LocationProvider::class
-    single { Geocoder(androidContext(), Locale.getDefault()) }
+    single<LocationListener> { CachedLocationProvider() } bind LocationProvider::class
 }

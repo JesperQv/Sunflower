@@ -3,7 +3,7 @@ package com.sunflower.weather_forecasts.data
 import com.sunflower.weather_forecasts.weather_list.WeatherForecast
 import com.google.gson.annotations.SerializedName
 
-fun CurrentWeatherResponse.toWeatherReportList(): List<WeatherForecast> {
+fun CurrentWeatherResponse.toWeatherForecastList(): List<WeatherForecast> {
     val location = this.city.name
 
     return this.list.map { val weather = it.weather.first().main

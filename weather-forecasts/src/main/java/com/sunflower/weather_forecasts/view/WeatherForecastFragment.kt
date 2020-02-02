@@ -1,24 +1,24 @@
-package com.sunflower.weather_forecasts.weather_list
+package com.sunflower.weather_forecasts.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.sunflower.weather_forecasts.WeatherForecastNavigator
 import com.sunflower.weather_forecasts.R
-import com.sunflower.weather_forecasts.WeatherForecastViewModel
+import com.sunflower.weather_forecasts.viewmodel.WeatherForecastViewModel
 import org.koin.android.ext.android.inject
+import org.koin.android.viewmodel.ext.android.viewModel
 
-class WeatherListFragment : Fragment() {
+class WeatherForecastFragment : Fragment() {
 
     private lateinit var weatherList : RecyclerView
     private lateinit var weatherAdapter : WeatherAdapter
-    val navigator: WeatherForecastNavigator by inject()
+    private val navigator: WeatherForecastNavigator by inject()
+    private val model: WeatherForecastViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,7 +26,6 @@ class WeatherListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.weather_fragment_list, container, false)
-        val model: WeatherForecastViewModel by viewModels()
         weatherList = root.findViewById(R.id.weather_list)
         weatherList.layoutManager = LinearLayoutManager(context)
         weatherAdapter = WeatherAdapter() {

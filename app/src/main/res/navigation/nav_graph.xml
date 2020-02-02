@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/weather_fragment_list"
-        android:name="com.sunflower.weather_forecasts.weather_list.WeatherListFragment"
+        android:name="com.sunflower.weather_forecasts.view.WeatherForecastFragment"
         android:label="WeatherListFragment"
         tools:layout="@layout/weather_fragment_list">
 

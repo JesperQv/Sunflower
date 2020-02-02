@@ -1,6 +1,6 @@
-package com.sunflower.weather_forecasts.data
+package com.sunflower.weather_forecasts.api
 
-import com.sunflower.weather_forecasts.weather_list.WeatherForecast
+import com.sunflower.weather_forecasts.view.WeatherForecast
 import com.google.gson.annotations.SerializedName
 
 fun CurrentWeatherResponse.toWeatherForecastList(): List<WeatherForecast> {

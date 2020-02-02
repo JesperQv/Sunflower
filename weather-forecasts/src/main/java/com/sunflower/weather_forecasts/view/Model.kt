@@ -1,4 +1,4 @@
-package com.sunflower.weather_forecasts.weather_list
+package com.sunflower.weather_forecasts.view
 
 data class WeatherForecast(
     val location: String,

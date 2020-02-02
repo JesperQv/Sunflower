@@ -1,6 +1,6 @@
 package com.sunflower.app
 
-import com.sunflower.weather_forecasts.WeatherForecastNavigator
+import com.sunflower.weather_forecasts.view.WeatherForecastNavigator
 import org.koin.dsl.module
 
 val navigator = Navigator()

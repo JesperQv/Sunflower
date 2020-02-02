@@ -41,6 +41,7 @@ dependencies {
     implementation deps.coroutinesAndroid
     implementation deps.retrofitCoroutines
     implementation deps.navigation
+    implementation deps.navigationUi
     implementation deps.glide
     kapt deps.glideCompiler
     testImplementation deps.junit

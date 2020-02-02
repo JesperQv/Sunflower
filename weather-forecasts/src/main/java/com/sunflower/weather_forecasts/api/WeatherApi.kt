@@ -1,4 +1,4 @@
-package com.sunflower.weather_forecasts.data
+package com.sunflower.weather_forecasts.api
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import kotlinx.coroutines.Deferred

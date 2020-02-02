@@ -6,4 +6,5 @@
     <string name="input">#</string>
     <string name="list_of_forecasts">Forecasts</string>
     <string name="test_garbage">TEST</string>
+    <string name="location_rationale">Location permission is needed for core functionality</string>
 </resources>

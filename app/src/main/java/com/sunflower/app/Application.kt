@@ -1,6 +1,7 @@
 package com.sunflower.app
 
 import android.app.Application
+import com.sunflower.current_weather.currentWeatherModule
 import com.sunflower.location.locationModule
 import com.sunflower.weather_forecasts.weatherForecastModule
 import org.koin.android.ext.koin.androidContext
@@ -16,7 +17,8 @@ class SunflowerApplication : Application() {
             modules(listOf(
                 appModule,
                 locationModule,
-                weatherForecastModule
+                weatherForecastModule,
+                currentWeatherModule
             ))
         }
     }

@@ -1,20 +1,17 @@
 package com.sunflower.location
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-
 data class Location(val lat: Double,
                     val lon: Double)
 
 interface LocationProvider {
-    val lastKnownLocation: LiveData<Location?>
+    var lastKnownLocation: Location?
 }
 
-class CachedLocationProvider: LocationProvider, LocationListener {
+internal class CachedLocationProvider: LocationProvider, LocationListener {
 
-    override val lastKnownLocation: MutableLiveData<Location?> = MutableLiveData()
+    override var lastKnownLocation: Location? = null
 
     override fun onLocationChanged(lat: Double, lon: Double) {
-        lastKnownLocation.value = Location(lat, lon)
+        lastKnownLocation = Location(lat, lon)
     }
 }

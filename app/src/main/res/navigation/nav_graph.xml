@@ -22,4 +22,10 @@
         android:label="MyFragment"
         tools:layout="@layout/main_fragment"/>
 
+    <fragment
+        android:id="@+id/current_weather_fragment"
+        android:name="com.sunflower.current_weather.CurrentWeatherFragment"
+        android:label="CurrentWeatherFragment"
+        tools:layout="@layout/fragment_current_weather"/>
+
 </navigation>

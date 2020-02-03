@@ -20,6 +20,13 @@ interface WeatherApi {
         @Query("units") unitCode: String = "metric"
     ): Deferred<CurrentWeatherResponse>
 
+    @GET("forecast")
+    suspend fun getCurrentWeatherAsync(
+        @Query("lat") latitude: Double,
+        @Query("lon") longitude: Double,
+        @Query("units") unitCode: String = "metric"
+    ): CurrentWeatherResponse
+
     companion object {
         //TODO I think we should refactor this into its own class
         operator fun invoke(): WeatherApi {

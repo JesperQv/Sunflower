@@ -36,6 +36,7 @@ android {
 }
 
 dependencies {
+    implementation libs.location
     implementation deps.kotlin
     implementation deps.appCompat
     implementation deps.ktx

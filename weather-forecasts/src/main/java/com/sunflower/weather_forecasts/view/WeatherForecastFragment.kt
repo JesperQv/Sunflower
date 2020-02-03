@@ -48,9 +48,6 @@ class WeatherForecastFragment : Fragment() {
             navigator.onForecastClicked(it)
         }
         weatherList.adapter = weatherAdapter
-        model.currentWeather.observe(viewLifecycleOwner, Observer<List<WeatherForecast>> { forecasts ->
-            weatherAdapter.setWeatherReports(forecasts)
-        })
         weatherSearchButton.setOnClickListener {
             cityToSearch = weatherSearchBar.text.toString()
             pref.edit().putString(cityToSearchKey, cityToSearch).apply()
@@ -59,13 +56,12 @@ class WeatherForecastFragment : Fragment() {
 
         return root
     }
-/*
+
     override fun onResume() {
         super.onResume()
-        model.currentWeather.observe(viewLifecycleOwner, Observer<List<WeatherForecast>> { forecasts ->
+        model.forecasts.observe(viewLifecycleOwner, Observer<List<WeatherForecast>> { forecasts ->
             weatherAdapter.setWeatherReports(forecasts)
         })
         model.getCurrentWeatherBySearch(cityToSearch)
     }
- */
 }

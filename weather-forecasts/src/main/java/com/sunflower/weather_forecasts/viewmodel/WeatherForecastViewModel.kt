@@ -1,50 +1,46 @@
 package com.sunflower.weather_forecasts.viewmodel
 
+
 import android.location.Location
-import android.location.LocationProvider
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.sunflower.location.LocationProvider
 import com.sunflower.weather_forecasts.repository.WeatherForecastRepository
 import com.sunflower.weather_forecasts.view.WeatherForecast
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class WeatherForecastViewModel(private val repository: WeatherForecastRepository,
-                               private val locationProvider: LocationProvider) : ViewModel() {
-/*
-    val forecasts: LiveData<List<WeatherForecast>> = liveData {
-        val result = repository.getWeatherForecast("Stockholm")
-        emit(result)
-    }
-    
- */
-    var lastKnownLocation: Location? = null
-    var currentWeather: MutableLiveData<List<WeatherForecast>> = MutableLiveData()
-    
+                              private val locationProvider: LocationProvider
+): ViewModel() {
+    private var lastKnownLocation: com.sunflower.location.Location? = null
+    var forecasts: MutableLiveData<List<WeatherForecast>> = MutableLiveData()
+
     init {
         updateLocation()
     }
-    
+
     private fun updateLocation() {
-        locationProvider
+        locationProvider.lastKnownLocation?.let { lastKnownLocation = it }
     }
+/*
+    fun getCurrentWeatherByLocation() {
+        viewModelScope.launch(Dispatchers.Main) {
+            updateLocation()
+            lastKnownLocation?.let {
+                val report = repository.getWeatherForecast(it.lat, it.lon)
+                forecasts.value = report
+            }
+        }
+    }
+
+ */
 
     fun getCurrentWeatherBySearch(location: String) {
         viewModelScope.launch(Dispatchers.Main) {
             val report = repository.getWeatherForecast(location)
-            currentWeather.value = report
+            forecasts.value = report
         }
     }
-
-    /*
-fun getCurrentWeatherByLocation() {
-    viewModelScope.launch(Dispatchers.Main) {
-        updateLocation()
-        lastKnownLocation?.let {
-            val report = repository.getWeatherForecast(it.lat, it.lon)
-        }
-    }
-}
-*/
 }

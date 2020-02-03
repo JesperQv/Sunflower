@@ -9,7 +9,7 @@
         android:id="@+id/weather_fragment_list"
         android:name="com.sunflower.weather_forecasts.view.WeatherForecastFragment"
         android:label="WeatherListFragment"
-        tools:layout="@layout/weather_fragment_list">
+        tools:layout="@layout/weather_list_container_fragment">
 
         <action android:id="@+id/weather_report_to_main_fragment"
             app:destination="@+id/main_fragment"/>

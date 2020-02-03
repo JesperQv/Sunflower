@@ -37,9 +37,10 @@ class WeatherForecastFragment : Fragment() {
 
         val root = inflater.inflate(R.layout.weather_fragment_list, container, false)
 
+        weatherSearchButton = root.findViewById(R.id.search_button)
         weatherSearchBar = root.findViewById(R.id.edit_search)
         weatherSearchBar.setText(cityToSearch)
-        weatherSearchButton = root.findViewById(R.id.search_button)
+
 
         weatherList = root.findViewById(R.id.weather_list)
         weatherList.layoutManager = LinearLayoutManager(context)
@@ -47,16 +48,24 @@ class WeatherForecastFragment : Fragment() {
             navigator.onForecastClicked(it)
         }
         weatherList.adapter = weatherAdapter
-        model.forecasts.observe(viewLifecycleOwner, Observer<List<WeatherForecast>> { forecasts ->
+        model.currentWeather.observe(viewLifecycleOwner, Observer<List<WeatherForecast>> { forecasts ->
             weatherAdapter.setWeatherReports(forecasts)
         })
         weatherSearchButton.setOnClickListener {
             cityToSearch = weatherSearchBar.text.toString()
             pref.edit().putString(cityToSearchKey, cityToSearch).apply()
+            model.getCurrentWeatherBySearch(cityToSearch)
         }
-
-
 
         return root
     }
+/*
+    override fun onResume() {
+        super.onResume()
+        model.currentWeather.observe(viewLifecycleOwner, Observer<List<WeatherForecast>> { forecasts ->
+            weatherAdapter.setWeatherReports(forecasts)
+        })
+        model.getCurrentWeatherBySearch(cityToSearch)
+    }
+ */
 }

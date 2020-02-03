@@ -29,9 +29,9 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(":weather-forecasts")
-    implementation project(":navigation")
-    implementation project(":location")
+    implementation libs.weatherForecasts
+    implementation libs.navigation
+    implementation libs.location
     implementation deps.koin
     implementation deps.recyclerView
     implementation deps.kotlin

@@ -1,7 +1,6 @@
 package com.sunflower.weather_forecasts.api
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
-import kotlinx.coroutines.Deferred
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -15,10 +14,10 @@ const val API_KEY = "6072ef68f569c7fe76e6084d4382126b"
 interface WeatherApi {
 
     @GET("forecast")
-    fun getCurrentWeatherAsync(
+    suspend fun getCurrentWeatherAsync(
         @Query("q") location: String,
         @Query("units") unitCode: String = "metric"
-    ): Deferred<CurrentWeatherResponse>
+    ): CurrentWeatherResponse
 
     @GET("forecast")
     suspend fun getCurrentWeatherAsync(

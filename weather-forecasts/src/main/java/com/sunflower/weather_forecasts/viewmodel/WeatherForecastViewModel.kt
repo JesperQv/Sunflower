@@ -20,6 +20,7 @@ class WeatherForecastViewModel(
         viewModelScope.launch(Dispatchers.Main) {
             val location = locationProvider.getLastKnownLocation()
             val report = repository.getWeatherForecast(location.lat, location.lon)
+            forecasts.value = report
         }
     }
 

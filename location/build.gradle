@@ -31,5 +31,6 @@ dependencies {
     implementation deps.koin
     implementation deps.appCompat
     implementation deps.location
+    implementation deps.coroutinesCore
     testImplementation deps.junit
 }

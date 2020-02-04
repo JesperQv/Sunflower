@@ -34,3 +34,5 @@ dependencies {
     implementation deps.coroutinesCore
     testImplementation deps.junit
 }
+
+apply from: './../android-lint.gradle'

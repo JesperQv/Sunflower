@@ -30,3 +30,5 @@ dependencies {
     implementation deps.navigation
     testImplementation deps.junit
 }
+
+apply from: './../android-lint.gradle'

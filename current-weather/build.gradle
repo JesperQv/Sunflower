@@ -44,3 +44,5 @@ dependencies {
     implementation deps.viewModelKtx
     testImplementation deps.junit
 }
+
+apply from: './../android-lint.gradle'

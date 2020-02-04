@@ -13,6 +13,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="@string/city_to_search"
+            android:autofillHints="city"
             android:inputType="text"/>
 
         <Button

@@ -8,4 +8,5 @@
     <string name="test_garbage">TEST</string>
     <string name="search">Search</string>
     <string name="city_to_search">Enter city</string>
+    <string name="content_description_weather_image_item">Weather Image</string>
 </resources>

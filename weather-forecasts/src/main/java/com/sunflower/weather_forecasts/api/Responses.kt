@@ -1,7 +1,7 @@
 package com.sunflower.weather_forecasts.api
 
-import com.sunflower.weather_forecasts.view.WeatherForecast
 import com.google.gson.annotations.SerializedName
+import com.sunflower.weather_forecasts.view.WeatherForecast
 
 fun CurrentWeatherResponse.toWeatherForecastList(): List<WeatherForecast> {
     val location = this.city.name

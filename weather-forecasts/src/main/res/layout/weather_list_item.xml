@@ -8,6 +8,7 @@
 
     <ImageView
         android:id="@+id/weather_image"
+        android:contentDescription="@string/content_description_weather_image_item"
         android:layout_width="100dp"
         android:layout_height="100dp" />
 

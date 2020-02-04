@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: "org.jlleitschuh.gradle.ktlint"
 
 android {
     compileSdkVersion 29
@@ -30,3 +31,5 @@ dependencies {
     implementation deps.navigation
     testImplementation deps.junit
 }
+
+apply from: './../android-lint.gradle'

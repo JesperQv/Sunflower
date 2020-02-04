@@ -1,8 +1,8 @@
 package com.sunflower.app
 
 import com.sunflower.navigation.BaseNavigator
-import com.sunflower.weather_forecasts.view.WeatherForecastNavigator
 import com.sunflower.weather_forecasts.view.WeatherForecast
+import com.sunflower.weather_forecasts.view.WeatherForecastNavigator
 
 class Navigator : BaseNavigator(),
     WeatherForecastNavigator {

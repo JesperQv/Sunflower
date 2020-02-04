@@ -15,15 +15,14 @@ import com.sunflower.weather_forecasts.viewmodel.WeatherForecastViewModel
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 
-
 class WeatherForecastFragment : Fragment() {
 
     private var cityToSearch = "Stockholm"
     private var cityToSearchKey = "city_to_search"
-    private lateinit var weatherSearchBar : EditText
-    private lateinit var weatherSearchButton : Button
-    private lateinit var weatherList : RecyclerView
-    private lateinit var weatherAdapter : WeatherAdapter
+    private lateinit var weatherSearchBar: EditText
+    private lateinit var weatherSearchButton: Button
+    private lateinit var weatherList: RecyclerView
+    private lateinit var weatherAdapter: WeatherAdapter
     private val navigator: WeatherForecastNavigator by inject()
     private val model: WeatherForecastViewModel by viewModel()
 
@@ -41,7 +40,6 @@ class WeatherForecastFragment : Fragment() {
         weatherSearchButton = root.findViewById(R.id.search_button)
         weatherSearchBar = root.findViewById(R.id.edit_search)
         weatherSearchBar.setText(cityToSearch)
-
 
         weatherList = root.findViewById(R.id.weather_list)
         weatherList.layoutManager = LinearLayoutManager(context)
@@ -65,5 +63,4 @@ class WeatherForecastFragment : Fragment() {
         })
         model.getWeatherForecastBySearch(cityToSearch)
     }
-
 }

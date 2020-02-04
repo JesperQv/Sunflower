@@ -15,18 +15,20 @@ class MyFragment : Fragment() {
 
     private var stepSize = 1
     private var counterToDisplay = 0
-    private lateinit var textView : TextView
-    private lateinit var testImage : ImageView
-    private lateinit var counter : TextView
-    private lateinit var incButton : Button
-    private lateinit var decButton : Button
-    private lateinit var chButton : Button
-    private lateinit var editText : EditText
+    private lateinit var textView: TextView
+    private lateinit var testImage: ImageView
+    private lateinit var counter: TextView
+    private lateinit var incButton: Button
+    private lateinit var decButton: Button
+    private lateinit var chButton: Button
+    private lateinit var editText: EditText
     private var stepSizeKey = "step_size"
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         val pref = activity?.getSharedPreferences("sunflower", 0)
         stepSize = pref!!.getInt(stepSizeKey, 1)
 
@@ -47,7 +49,6 @@ class MyFragment : Fragment() {
         }
         decButton.setOnClickListener {
             decrement(stepSize)
-
         }
         chButton.setOnClickListener {
             stepSize = editText.text.toString().toInt()
@@ -70,9 +71,7 @@ class MyFragment : Fragment() {
         if ((counterToDisplay - decWith) >= 0) {
             counterToDisplay -= decWith
             counter.text = counterToDisplay.toString()
-
-        }
-        else {
+        } else {
             counterToDisplay = 0
             counter.text = counterToDisplay.toString()
         }

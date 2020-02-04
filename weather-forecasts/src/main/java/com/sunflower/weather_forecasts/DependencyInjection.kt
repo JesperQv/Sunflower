@@ -7,6 +7,6 @@ import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val weatherForecastModule = module {
-    viewModel { WeatherForecastViewModel(get()) }
+    viewModel { WeatherForecastViewModel(get(), get()) }
     single<WeatherForecastRepository> { CachedWeatherForecastRepository() }
 }

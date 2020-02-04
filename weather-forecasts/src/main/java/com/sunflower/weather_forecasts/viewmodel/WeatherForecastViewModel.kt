@@ -24,18 +24,6 @@ class WeatherForecastViewModel(private val repository: WeatherForecastRepository
     private fun updateLocation() {
         locationProvider.lastKnownLocation?.let { lastKnownLocation = it }
     }
-/*
-    fun getCurrentWeatherByLocation() {
-        viewModelScope.launch(Dispatchers.Main) {
-            updateLocation()
-            lastKnownLocation?.let {
-                val report = repository.getWeatherForecast(it.lat, it.lon)
-                forecasts.value = report
-            }
-        }
-    }
-
- */
 
     fun getCurrentWeatherBySearch(location: String) {
         viewModelScope.launch(Dispatchers.Main) {

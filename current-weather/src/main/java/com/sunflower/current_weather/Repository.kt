@@ -8,7 +8,7 @@ interface CurrentWeatherRepository {
     suspend fun getCurrentWeather(lat: Double, lon: Double): CurrentWeatherReport
 }
 
-class ApiCurrentWeatherRepository: CurrentWeatherRepository {
+class ApiCurrentWeatherRepository : CurrentWeatherRepository {
     private val api = CurrentWeatherApi()
 
     override suspend fun getCurrentWeather(location: String): CurrentWeatherReport {

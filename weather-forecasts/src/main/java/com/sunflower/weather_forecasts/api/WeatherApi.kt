@@ -9,7 +9,6 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 const val API_KEY = "6072ef68f569c7fe76e6084d4382126b"
-//https://api.openweathermap.org/data/2.5/weather?q=Stockholm&appid=6072ef68f569c7fe76e6084d4382126b&units=metric
 
 interface WeatherApi {
 
@@ -27,7 +26,7 @@ interface WeatherApi {
     ): CurrentWeatherResponse
 
     companion object {
-        //TODO I think we should refactor this into its own class
+        // TODO I think we should refactor this into its own class
         operator fun invoke(): WeatherApi {
 
             val requestInterceptor = Interceptor { chain ->
@@ -59,5 +58,3 @@ interface WeatherApi {
         }
     }
 }
-
-

@@ -11,7 +11,7 @@ import org.koin.core.context.startKoin
 class SunflowerApplication : Application() {
     override fun onCreate() {
         super.onCreate()
-        startKoin{
+        startKoin {
             androidLogger()
             androidContext(this@SunflowerApplication)
             modules(listOf(

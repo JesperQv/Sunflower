@@ -3,15 +3,15 @@ package com.sunflower.current_weather
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.sunflower.location.Location
 import com.sunflower.location.LocationProvider
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class CurrentWeatherViewModel(private val repository: CurrentWeatherRepository,
-                              private val locationProvider: LocationProvider): ViewModel() {
+class CurrentWeatherViewModel(
+    private val repository: CurrentWeatherRepository,
+    private val locationProvider: LocationProvider
+) : ViewModel() {
     var currentWeather: MutableLiveData<CurrentWeatherReport> = MutableLiveData()
-
 
     fun getCurrentWeatherByLocation() {
         viewModelScope.launch(Dispatchers.Main) {

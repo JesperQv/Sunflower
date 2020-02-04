@@ -11,7 +11,7 @@ import com.sunflower.common.toWeatherDrawableInt
 import kotlinx.android.synthetic.main.fragment_current_weather.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class CurrentWeatherFragment: Fragment() {
+class CurrentWeatherFragment : Fragment() {
 
     private val viewModel: CurrentWeatherViewModel by viewModel()
     private lateinit var textView: TextView

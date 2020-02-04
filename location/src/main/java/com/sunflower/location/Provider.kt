@@ -1,12 +1,18 @@
 package com.sunflower.location
 
-import kotlinx.coroutines.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.FlowPreview
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.channels.ConflatedBroadcastChannel
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
 
-data class Location(val lat: Double,
-                    val lon: Double)
+data class Location(
+    val lat: Double,
+    val lon: Double
+)
 
 interface LocationProvider {
     suspend fun getLastKnownLocation(): Location
@@ -14,7 +20,7 @@ interface LocationProvider {
 
 @FlowPreview
 @ExperimentalCoroutinesApi
-internal class CachedLocationProvider: LocationProvider, LocationListener {
+internal class CachedLocationProvider : LocationProvider, LocationListener {
 
     private val channel = ConflatedBroadcastChannel<Location>()
 

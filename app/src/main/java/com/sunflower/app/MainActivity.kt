@@ -27,7 +27,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
         NavigationUI.setupWithNavController(bottom_nav, navController)
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
@@ -92,7 +93,8 @@ class MainActivity : AppCompatActivity() {
         permissions: Array<String>,
         grantResults: IntArray
     ) {
-        if (requestCode == REQUEST_PERMISSIONS_REQUEST_CODE && grantResults[0] == PERMISSION_GRANTED) {
+        if (requestCode == REQUEST_PERMISSIONS_REQUEST_CODE &&
+            grantResults[0] == PERMISSION_GRANTED) {
             getLastLocation()
         }
     }

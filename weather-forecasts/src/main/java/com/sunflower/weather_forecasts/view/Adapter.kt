@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.sunflower.common.toWeatherDrawableInt
 import com.sunflower.weather_forecasts.R
 
 class WeatherAdapter(private val onItemClicked: (forecast: WeatherForecast) -> Unit) :
@@ -48,19 +49,7 @@ class WeatherReportViewHolder(private val view: View) : RecyclerView.ViewHolder(
         weatherTempView.text = forecast.temp
         weatherTime.text = forecast.time
         weatherImage.setImageDrawable(
-            view.context.getDrawable(
-                when (forecast.icon) {
-                    /*10n & 10d are different icons, we need to define these later
-                    they basically indicate light/heavy rain etc, goes for all icons.*/
-                    "10n" -> R.drawable.ic_weather_rainy
-                    "10d" -> R.drawable.ic_weather_rainy
-                    "01n" -> R.drawable.ic_weather_sunny
-                    "01d" -> R.drawable.ic_weather_sunny
-                    "13n" -> R.drawable.ic_weather_snowy
-                    "13d" -> R.drawable.ic_weather_snowy
-                    else -> R.drawable.ic_weather_cloudy
-                }
-            )
+            view.context.getDrawable(forecast.icon.toWeatherDrawableInt())
         )
         view.setOnClickListener {
             onItemClicked.invoke(forecast)

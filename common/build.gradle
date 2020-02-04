@@ -26,21 +26,8 @@ android {
 }
 
 dependencies {
-    implementation libs.location
-    implementation libs.common
-
     implementation deps.kotlin
     implementation deps.appCompat
     implementation deps.ktx
-    implementation deps.koin
-    implementation deps.koinViewModel
-    implementation deps.gson
-    implementation deps.retrofit
-    implementation deps.gsonConverter
-    implementation deps.loggingInterceptor
-    implementation deps.coroutinesCore
-    implementation deps.coroutinesAndroid
-    implementation deps.retrofitCoroutines
-    implementation deps.viewModelKtx
     testImplementation deps.junit
 }

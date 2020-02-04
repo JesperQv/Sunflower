@@ -41,6 +41,7 @@ ext.deps = [
 ]
 
 ext.libs = [
+        common             : project(':common'),
         location           : project(':location'),
         weatherForecasts   : project(':weather-forecasts'),
         navigation         : project(':navigation'),

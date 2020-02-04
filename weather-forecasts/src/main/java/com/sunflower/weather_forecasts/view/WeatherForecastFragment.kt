@@ -14,6 +14,8 @@ import com.sunflower.weather_forecasts.R
 import com.sunflower.weather_forecasts.viewmodel.WeatherForecastViewModel
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
+import java.text.Normalizer
+
 
 class WeatherForecastFragment : Fragment() {
 
@@ -34,6 +36,7 @@ class WeatherForecastFragment : Fragment() {
 
         val pref = activity?.getSharedPreferences("sunflower", 0)
         cityToSearch = pref!!.getString(cityToSearchKey, "Stockholm").toString()
+        cityToSearch = normalize(cityToSearch)
 
         val root = inflater.inflate(R.layout.weather_fragment_list, container, false)
 
@@ -51,7 +54,7 @@ class WeatherForecastFragment : Fragment() {
         weatherSearchButton.setOnClickListener {
             cityToSearch = weatherSearchBar.text.toString()
             pref.edit().putString(cityToSearchKey, cityToSearch).apply()
-            model.getCurrentWeatherBySearch(cityToSearch)
+            model.getCurrentWeatherBySearch(normalize(cityToSearch))
         }
 
         return root
@@ -62,6 +65,11 @@ class WeatherForecastFragment : Fragment() {
         model.forecasts.observe(viewLifecycleOwner, Observer<List<WeatherForecast>> { forecasts ->
             weatherAdapter.setWeatherReports(forecasts)
         })
-        model.getCurrentWeatherBySearch(cityToSearch)
+        model.getCurrentWeatherBySearch(normalize(cityToSearch))
     }
+
+    inline fun normalize(input: String): String = Normalizer
+        .normalize(input, Normalizer.Form.NFD)
+        .replace("[^\\p{ASCII}]".toRegex(), "")
+
 }

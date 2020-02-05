@@ -22,18 +22,5 @@ jobs:
     - name: Upload Artifact
       uses: actions/upload-artifact@v1
       with:
-        name: sunflower-debug-$GITHUB_RUN_NUMBER
-        path: app/build/outputs/apk/debug/app-debug.apk
-    - name: Display the build number
-      run: echo GITHUB_RUN_NUMBER
-      shell: bash  
-    - name: Display the path
-      run: echo $PATH
-      shell: bash
-    - name: Display the id
-      run: echo $GITHUB_RUN_ID
-      shell: bash
-    - name: Display the id 2
-      run: echo GITHUB_RUN_ID
-      shell: bash  
-  
+        name: sunflower-debug-$GITHUB_RUN_ID
+        path: app/build/outputs/apk/debug/app-debug.apk 

@@ -14,7 +14,8 @@ import org.koin.android.viewmodel.ext.android.viewModel
 class CurrentWeatherFragment : Fragment() {
 
     private val viewModel: CurrentWeatherViewModel by viewModel()
-    private lateinit var textView: TextView
+    private lateinit var locationText: TextView
+    private lateinit var weatherText: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -22,14 +23,16 @@ class CurrentWeatherFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_current_weather, container, false)
-        textView = root.findViewById(R.id.test)
+        locationText = root.findViewById(R.id.location_title)
+        weatherText = root.findViewById(R.id.weather_description)
         return root
     }
 
     override fun onResume() {
         super.onResume()
         viewModel.currentWeather.observe(viewLifecycleOwner, Observer {
-            textView.text = it.toString()
+            locationText.text = it.locationName
+            weatherText.text = it.weatherDescription
             weather_image.setImageDrawable(context?.getDrawable(it.iconId.toWeatherDrawableInt()))
         })
         viewModel.getCurrentWeatherByLocation()

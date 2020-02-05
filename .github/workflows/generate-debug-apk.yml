@@ -24,3 +24,7 @@ jobs:
       with:
         name: sunflower-debug-$GITHUB_RUN_NUMBER
         path: app/build/outputs/apk/debug/app-debug.apk
+    - name: Display the build number
+      run: echo $GITHUB_RUN_NUMBER
+      shell: bash   
+  

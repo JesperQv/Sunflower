@@ -9,8 +9,6 @@ on:
 
 jobs:
   upload_testable_apk:
-    env:
-      BUILD_NUMBER: $GITHUB_RUN_ID
     name: Build Debug APK
     runs-on: ubuntu-latest
     steps:
@@ -24,5 +22,5 @@ jobs:
     - name: Upload Artifact
       uses: actions/upload-artifact@v1
       with:
-        name: sunflower-debug-$BUILD_NUMBER
+        name: sunflower-debug-apk
         path: app/build/outputs/apk/debug/app-debug.apk 

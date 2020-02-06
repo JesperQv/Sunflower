@@ -20,7 +20,11 @@ jobs:
     - name: Gradlew assembleDebug
       run: ./gradlew assembleDebug
     - name: Rename APK
-      run: mv app/build/outputs/apk/debug/app-debug.apk app/build/outputs/apk/debug/sunflower-debug-$GITHUB_RUN_ID.apk 
+      run: mv app/build/outputs/apk/debug/app-debug.apk app/build/outputs/apk/debug/sunflower-debug-$GITHUB_RUN_ID.apk
+    - name: echo id
+      run: echo $GITHUB_RUN_ID
+    - name: echo files
+      run: ls app/build/outputs/apk/debug/
     - name: Upload Artifact
       uses: actions/upload-artifact@v1
       with:

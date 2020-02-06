@@ -10,9 +10,7 @@ on:
 jobs:
   upload_testable_apk:
     name: Build Debug APK
-    runs-on: ubuntu-latest
-    env:
-      FILE_PATH: app/build/outputs/apk/debug/sunflower-debug-$GITHUB_RUN_ID.apk
+    runs-on: ubuntu-latest 
     steps:
     - uses: actions/checkout@v1
     - name: set up JDK 1.8
@@ -22,9 +20,11 @@ jobs:
     - name: Gradlew assembleDebug
       run: ./gradlew assembleDebug
     - name: Rename APK
-      run: mv app/build/outputs/apk/debug/app-debug.apk $FILE_PATH
+      run: mv app/build/outputs/apk/debug/app-debug.apk app/build/outputs/apk/debug/sunflower-debug-$GITHUB_RUN_ID.apk
+    - name: Removed unused files
+      run: rm app/build/outputs/apk/debug/output.json
     - name: Upload Artifact
       uses: actions/upload-artifact@v1
       with:
         name: sunflower-debug-apk
-        path: $FILE_PATH
+        path: app/build/outputs/apk/debug/

@@ -11,21 +11,22 @@
         android:label="WeatherListFragment"
         tools:layout="@layout/weather_list_container_fragment">
 
-        <action android:id="@+id/weather_report_to_main_fragment"
-            app:destination="@+id/main_fragment"/>
+        <action
+            android:id="@+id/action_weather_fragment_list_to_settings_fragment"
+            app:destination="@id/settings_fragment"/>
 
     </fragment>
-
-    <fragment
-        android:id="@+id/main_fragment"
-        android:name="com.sunflower.app.MyFragment"
-        android:label="MyFragment"
-        tools:layout="@layout/main_fragment"/>
 
     <fragment
         android:id="@+id/current_weather_fragment"
         android:name="com.sunflower.current_weather.CurrentWeatherFragment"
         android:label="CurrentWeatherFragment"
         tools:layout="@layout/fragment_current_weather"/>
+
+    <fragment
+        android:id="@+id/settings_fragment"
+        android:name="com.sunflower.settings.SettingsFragment"
+        android:label="SettingsFragment"
+        tools:layout="@layout/settings_fragment"/>
 
 </navigation>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello_world">Hello settings!</string>
+    <string name="tricking_lint">REMOVE LATER</string>
+</resources>

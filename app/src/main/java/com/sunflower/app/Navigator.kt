@@ -7,6 +7,6 @@ import com.sunflower.weather_forecasts.view.WeatherForecastNavigator
 class Navigator : BaseNavigator(),
     WeatherForecastNavigator {
     override fun onForecastClicked(forecast: WeatherForecast) {
-        navController?.navigate(R.id.weather_report_to_main_fragment)
+        navController?.navigate(R.id.action_weather_fragment_list_to_settings_fragment)
     }
 }

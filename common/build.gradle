@@ -32,3 +32,5 @@ dependencies {
     implementation deps.ktx
     testImplementation deps.junit
 }
+
+apply from: './../android-lint.gradle'

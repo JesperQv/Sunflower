@@ -52,16 +52,11 @@ dependencies {
     implementation deps.koinViewModel
     implementation deps.gson
     implementation deps.retrofit
-    implementation deps.gsonConverter
-    implementation deps.loggingInterceptor
     implementation deps.coroutinesCore
     implementation deps.coroutinesAndroid
-    implementation deps.retrofitCoroutines
     implementation deps.navigation
     implementation deps.navigationUi
-    implementation deps.glide
     implementation deps.lifecycle
-    kapt deps.glideCompiler
     testImplementation deps.junit
 }
 

@@ -18,7 +18,11 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField "String", "API_KEY", "\"" + System.getenv("WEATHER_CLIENT_ID") + "\""
+        }
         release {
+            buildConfigField "String", "API_KEY", "\"" + System.getenv("WEATHER_CLIENT_ID") + "\""
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -30,6 +34,9 @@ dependencies {
     implementation deps.kotlin
     implementation deps.appCompat
     implementation deps.ktx
+    implementation deps.retrofit
+    implementation deps.retrofitCoroutines
+    implementation deps.gsonConverter
     testImplementation deps.junit
 }
 

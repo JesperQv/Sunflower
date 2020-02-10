@@ -1,18 +1,18 @@
-package com.sunflower.weather_forecasts.api
+package com.sunflower.current_weather.api
 
 import com.sunflower.common.buildApiClient
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface WeatherApi {
+interface CurrentWeatherApi {
 
-    @GET("forecast")
+    @GET("weather")
     suspend fun getCurrentWeatherAsync(
         @Query("q") location: String,
         @Query("units") unitCode: String = "metric"
     ): CurrentWeatherResponse
 
-    @GET("forecast")
+    @GET("weather")
     suspend fun getCurrentWeatherAsync(
         @Query("lat") latitude: Double,
         @Query("lon") longitude: Double,
@@ -20,6 +20,6 @@ interface WeatherApi {
     ): CurrentWeatherResponse
 
     companion object {
-        operator fun invoke(): WeatherApi = buildApiClient()
+        operator fun invoke(): CurrentWeatherApi = buildApiClient()
     }
 }

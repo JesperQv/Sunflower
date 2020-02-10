@@ -37,11 +37,8 @@ dependencies {
     implementation deps.koinViewModel
     implementation deps.gson
     implementation deps.retrofit
-    implementation deps.gsonConverter
-    implementation deps.loggingInterceptor
     implementation deps.coroutinesCore
     implementation deps.coroutinesAndroid
-    implementation deps.retrofitCoroutines
     implementation deps.viewModelKtx
     testImplementation deps.junit
 }

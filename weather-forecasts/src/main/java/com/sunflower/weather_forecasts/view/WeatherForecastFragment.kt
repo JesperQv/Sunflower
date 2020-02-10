@@ -17,8 +17,6 @@ import org.koin.android.viewmodel.ext.android.viewModel
 
 class WeatherForecastFragment : Fragment() {
 
-    private var cityToSearch = "Stockholm"
-    private var cityToSearchKey = "city_to_search"
     private lateinit var weatherSearchBar: EditText
     private lateinit var weatherSearchButton: Button
     private lateinit var weatherList: RecyclerView
@@ -31,15 +29,10 @@ class WeatherForecastFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        val pref = activity?.getSharedPreferences("sunflower", 0)
-        cityToSearch = pref!!.getString(cityToSearchKey, "Stockholm").toString()
-
         val root = inflater.inflate(R.layout.weather_fragment_list, container, false)
 
         weatherSearchButton = root.findViewById(R.id.search_button)
         weatherSearchBar = root.findViewById(R.id.edit_search)
-        weatherSearchBar.setText(cityToSearch)
 
         weatherList = root.findViewById(R.id.weather_list)
         weatherList.layoutManager = LinearLayoutManager(context)
@@ -48,8 +41,7 @@ class WeatherForecastFragment : Fragment() {
         }
         weatherList.adapter = weatherAdapter
         weatherSearchButton.setOnClickListener {
-            cityToSearch = weatherSearchBar.text.toString()
-            pref.edit().putString(cityToSearchKey, cityToSearch).apply()
+            val cityToSearch = weatherSearchBar.text.toString()
             model.getWeatherForecastBySearch(cityToSearch)
         }
 
@@ -61,6 +53,6 @@ class WeatherForecastFragment : Fragment() {
         model.forecasts.observe(viewLifecycleOwner, Observer<List<WeatherForecast>> { forecasts ->
             weatherAdapter.setWeatherReports(forecasts)
         })
-        model.getWeatherForecastBySearch(cityToSearch)
+        model.getWeatherForecastByLocation()
     }
 }

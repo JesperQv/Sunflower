@@ -3,6 +3,7 @@ package com.sunflower.common
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -23,8 +24,15 @@ val requestInterceptor = Interceptor { chain ->
     return@Interceptor chain.proceed(request)
 }
 
+fun getLogInt(): HttpLoggingInterceptor {
+    val interceptor = HttpLoggingInterceptor()
+    interceptor.level = HttpLoggingInterceptor.Level.BODY
+    return interceptor
+}
+
 val okHttpClient: OkHttpClient = OkHttpClient.Builder()
     .addInterceptor(requestInterceptor)
+    .addInterceptor(getLogInt())
     .build()
 
 inline fun <reified T : Any> buildApiClient(): T {

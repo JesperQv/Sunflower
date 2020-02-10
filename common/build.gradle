@@ -37,6 +37,7 @@ dependencies {
     implementation deps.retrofit
     implementation deps.retrofitCoroutines
     implementation deps.gsonConverter
+    implementation deps.loggingInterceptor
     testImplementation deps.junit
 }
 

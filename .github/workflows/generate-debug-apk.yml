@@ -19,6 +19,8 @@ jobs:
         java-version: 1.8
     - name: Gradlew assembleDebug
       run: ./gradlew assembleDebug
+      env:
+        WEATHER_CLIENT_ID: ${{ secrets.API_KEY }}
     - name: Rename APK
       run: mv app/build/outputs/apk/debug/app-debug.apk app/build/outputs/apk/debug/sunflower-debug-$GITHUB_RUN_ID.apk
     - name: Removed unused files

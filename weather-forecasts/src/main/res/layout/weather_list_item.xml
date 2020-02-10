@@ -1,49 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="10dp"
-    android:background="#FFFFFF">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <ImageView
-        android:id="@+id/weather_image"
-        android:contentDescription="@string/content_description_weather_image_item"
-        android:layout_width="100dp"
-        android:layout_height="100dp" />
+    <data>
+
+        <variable
+            name="forecast"
+            type="com.sunflower.weather_forecasts.view.WeatherForecast" />
+
+    </data>
 
     <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:orientation="vertical">
+        android:padding="10dp"
+        android:background="#FFFFFF">
 
-        <TextView
-            android:id="@+id/weather_location"
-            android:layout_gravity="center_vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"/>
+        <ImageView
+            android:id="@+id/weather_image"
+            android:contentDescription="@string/content_description_weather_image_item"
+            android:src="@{forecast.icon}"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
 
-        <TextView
-            android:id="@+id/weather_temp"
-            android:layout_gravity="center_vertical"
-            android:layout_width="wrap_content"
+        <LinearLayout
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"/>
-        <TextView
-            android:id="@+id/weather_condition"
-            android:layout_gravity="center_vertical"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"/>
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/weather_time"
-            android:layout_gravity="center_vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"/>
+            <TextView
+                android:id="@+id/weather_location"
+                android:text="@{forecast.location}"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp" />
+
+            <TextView
+                android:id="@+id/weather_temp"
+                android:text="@{forecast.temp}"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp" />
+
+            <TextView
+                android:id="@+id/weather_condition"
+                android:text="@{forecast.weather}"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp" />
+
+            <TextView
+                android:id="@+id/weather_time"
+                android:text="@{forecast.time}"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
-</LinearLayout>
+</layout>

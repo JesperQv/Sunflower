@@ -1,6 +1,7 @@
 package com.sunflower.weather_forecasts.api
 
 import com.google.gson.annotations.SerializedName
+import com.sunflower.common.toWeatherDrawableInt
 import com.sunflower.weather_forecasts.view.WeatherForecast
 
 fun CurrentWeatherResponse.toWeatherForecastList(): List<WeatherForecast> {
@@ -9,7 +10,7 @@ fun CurrentWeatherResponse.toWeatherForecastList(): List<WeatherForecast> {
     return this.list.map { val weather = it.weather.first().main
         val temp = it.main.temp
         val time = it.dtTxt
-        val icon = it.weather.first().icon
+        val icon = it.weather.first().icon.toWeatherDrawableInt()
         WeatherForecast(location, weather, "$temp°C", time, icon) }
 }
 

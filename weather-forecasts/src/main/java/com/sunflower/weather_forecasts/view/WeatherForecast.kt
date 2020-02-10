@@ -5,5 +5,5 @@ data class WeatherForecast(
     val weather: String,
     val temp: String,
     val time: String,
-    val icon: String
+    val icon: Int
 )

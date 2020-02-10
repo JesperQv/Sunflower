@@ -13,6 +13,7 @@ class WeatherForecastViewModel(
     private val repository: WeatherForecastRepository,
     private val locationProvider: LocationProvider
 ) : ViewModel() {
+
     var forecasts: MutableLiveData<List<WeatherForecast>> = MutableLiveData()
 
     fun getWeatherForecastByLocation() {

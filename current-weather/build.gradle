@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 apply plugin: "org.jlleitschuh.gradle.ktlint"
 
 android {
@@ -24,6 +25,10 @@ android {
         }
     }
 
+    dataBinding {
+        enabled true
+    }
+
 }
 
 dependencies {
@@ -40,6 +45,7 @@ dependencies {
     implementation deps.coroutinesCore
     implementation deps.coroutinesAndroid
     implementation deps.viewModelKtx
+    implementation deps.cardView
     testImplementation deps.junit
 }
 

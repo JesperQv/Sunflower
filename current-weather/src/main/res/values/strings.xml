@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="content_description_weather_image">Weather Image</string>
+    <string name="temperature">Temperature</string>
+    <string name="wind_speed">Wind speed</string>
+    <string name="humidity">Humidity</string>
+    <string name="daylight">Daylight</string>
+    <string name="wind_speed_image">wind speed image</string>
+    <string name="temperature_image">temperature image</string>
+    <string name="humidity_image">humidity image</string>
+    <string name="sunrise_image">sunrise image</string>
+    <string name="sunset_image">sunset image</string>
 </resources>

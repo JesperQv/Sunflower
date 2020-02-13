@@ -1,15 +1,15 @@
 package com.sunflower.current_weather
 
 data class CurrentWeatherReport(
-    val temp: Double,
-    val minTemp: Double,
-    val maxTemp: Double,
+    val temp: String,
+    val minTemp: String,
+    val maxTemp: String,
     val weather: String,
     val weatherDescription: String,
-    val iconId: String,
-    val humidity: Int,
-    val windSpeed: Double,
+    val icon: Int,
+    val humidity: String,
+    val windSpeed: String,
     val locationName: String,
-    val sunrise: Int,
-    val sunset: Int
+    val sunrise: String,
+    val sunset: String
 )

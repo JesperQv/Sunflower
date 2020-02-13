@@ -1,22 +1,33 @@
 package com.sunflower.current_weather.api
 
+import android.annotation.SuppressLint
 import com.google.gson.annotations.SerializedName
+import com.sunflower.common.toWeatherDrawableInt
 import com.sunflower.current_weather.CurrentWeatherReport
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
+@SuppressLint("DefaultLocale")
 fun CurrentWeatherResponse.toCurrentWeatherReport(): CurrentWeatherReport {
     return CurrentWeatherReport(
-        this.main.temp,
-        this.main.temp_min,
-        this.main.temp_max,
+        "${this.main.temp} °C",
+        "${this.main.temp_min} °C",
+        "${this.main.temp_max} °C",
         this.weather.first().main,
-        this.weather.first().description,
-        this.weather.first().icon,
-        this.main.humidity,
-        this.wind.speed,
+        this.weather.first().description.capitalize(),
+        this.weather.first().icon.toWeatherDrawableInt(),
+        "${this.main.humidity}%",
+        "${this.wind.speed} m/s",
         this.name,
-        this.sys.sunrise,
-        this.sys.sunset
+        epochTo24H(this.sys.sunrise),
+        epochTo24H(this.sys.sunset)
     )
+}
+
+fun epochTo24H(epoch: Int): String {
+    val sdf = SimpleDateFormat("HH:mm", Locale.getDefault())
+    return sdf.format(Date(epoch * 1000L))
 }
 
 data class CurrentWeatherResponse(

@@ -13,6 +13,7 @@ def koin_version = "2.0.1"
 def location_gps_version = "17.0.0"
 def lifecycle_version = "2.2.0-alpha01"
 def viewModelKtx_version = "2.1.0-beta01"
+def cardView_version = "28.0.0"
 
 
 ext.deps = [
@@ -38,6 +39,7 @@ ext.deps = [
         location           : "com.google.android.gms:play-services-location:$location_gps_version",
         lifecycle          : "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version",
         viewModelKtx       : "androidx.lifecycle:lifecycle-viewmodel-ktx:$viewModelKtx_version",
+        cardView           : "com.android.support:cardview-v7:$cardView_version",
 ]
 
 ext.libs = [
